@@ -43,11 +43,11 @@ namespace LoginPage
             txt_amount.Clear();
             txt_note.Clear();
             date_Date.Text = DateTime.Now.ToString();
-            combo_alldata.Text = "";
+            combo_alldata.Text = "Select Item";
 
             rb_advance.Checked = false;
-            rb_pending .Checked = false;
-            rb_total .Checked = false;
+            rb_pending.Checked = false;
+            rb_total.Checked = false;
         }
         private void Home_Load(object sender, EventArgs e)
         {
@@ -59,56 +59,72 @@ namespace LoginPage
         {
             Application.Exit();
         }
-       
+
 
         private void btn_search_Click(object sender, EventArgs e)
         {
-            try
+
+            if (!string.IsNullOrWhiteSpace(txt_phonenumber.Text))
             {
-
-                cmd = new SqlCommand("select * from tbl_admindata where phonenumber =" + txt_phonenumber.Text + ";", con);
-
-                con.Close();
-                SqlDataReader dr;
-                con.Open();
-                dr = cmd.ExecuteReader();
-                if (dr.HasRows)
+                try
                 {
-                    dr.Read();
-                    // txt_firstname.Text = dr.GetValue(1).ToString();
-                    txt_name.Text = dr.GetValue(0).ToString();
-                    date_Date.Text = dr.GetValue(2).ToString();
-                    //selectedItem = dr.GetValue(3).ToString();
-                    //payment = dr.GetValue(4).ToString();
-                    txt_note.Text = dr.GetValue(6).ToString();
-                    txt_amount.Text = dr.GetValue(5).ToString();
+                    con.Close();
+                    cmd = new SqlCommand("select * from tbl_admindata where phonenumber =" + txt_phonenumber.Text + ";", con);
+                    con.Open();
+                    SqlDataReader dr;
+                    dr = cmd.ExecuteReader();
 
-                    string temp =  dr.GetValue(4).ToString();
-
-                    if (temp.Equals("Advance"))
+                    if (dr.HasRows)
                     {
-                        rb_advance.Checked = true;
+                     dr.Read();
+
+                        txt_name.Text = dr.GetValue(0).ToString();
+                        date_Date.Text = dr.GetValue(2).ToString();
+                        string work = dr.GetString(3);
+                        if (work.Equals("Aadhar card"))
+                        {
+                            combo_alldata.SelectedItem = "Aadhar card";
+                        }
+                        else if (work.Equals("Pan card"))
+                        {
+                            combo_alldata.SelectedItem = "Pan card";
+
+                        }
+                        else if (work.Equals("Ration card"))
+                        {
+                            combo_alldata.SelectedItem = "Ration card";
+                        }
+                        string temp = dr.GetValue(4).ToString();
+                        if (temp.Equals("Advance"))
+                        {
+                            rb_advance.Checked = true;
+                        }
+                        else if (temp.Equals("Total"))
+                        {
+                            rb_total.Checked = true;
+
+                        }
+                        else if (temp.Equals("Panding"))
+                        {
+                            rb_pending.Checked = true;
+                        }
+                        txt_amount.Text = dr.GetValue(5).ToString();
+                        txt_note.Text = dr.GetValue(6).ToString();
+                     dr.Close();    
                     }
-                    else if (temp.Equals("Total"))
+                    else
                     {
-                        rb_total.Checked = true;
-
-                    }else if (temp.Equals("Panding"))
-                    {
-                        rb_pending.Checked = true;
+                        MessageBox.Show("No records found.");
                     }
-
-
-                    string work = dr.GetValue(3).ToString();
-                    combo_alldata.SelectedItem = work;
-
                 }
-                con.Close();
-
+                catch (Exception)
+                {
+                    MessageBox.Show(" Invalid Input ! Enter Phonenumber... ");
+                }
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show(" Invalid Input... ");
+                MessageBox.Show("Enter Phone number.");
             }
         }
 
@@ -127,9 +143,9 @@ namespace LoginPage
                 Bindxerox();
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(" Invalid Input ! Enter Data... ");
             }
         }
 
@@ -150,7 +166,7 @@ namespace LoginPage
             }
             catch (Exception)
             {
-                MessageBox.Show(" Invalid Input... ");
+                MessageBox.Show(" Invalid Input ! Enter Phonenumber And Search ");
             }
         }
 
@@ -172,22 +188,54 @@ namespace LoginPage
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt32( txt_phonenumber.Text ) != 1)
+
+            /*try
+            {
+                con.Close();
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Record Deleted Successfully!!!!");
+                ClearData();
+                Bindxerox();
+            }
+            catch (Exception )
+            {
+                MessageBox.Show(" Invalid Input... Enter Phonenumber ");
+            }
+        }*/
+            /*else
+            {
+                MessageBox.Show("Empty Phonenumber");
+            }*/
+
+            if (!string.IsNullOrWhiteSpace(txt_phonenumber.Text))
             {
                 try
                 {
-                    con.Close();
-                    cmd = new SqlCommand("delete from tbl_admindata where phonenumber=" + txt_phonenumber.Text + ";", con);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    MessageBox.Show("Record Deleted Successfully!!!!");
-                    ClearData();
-                    Bindxerox();
+                        con.Close();
+                        cmd = new SqlCommand("delete from tbl_admindata where phonenumber=" + txt_phonenumber.Text + ";", con);
+                        con.Open();
+                        //cmd.ExecuteNonQuery(); 
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Record Deleted Successfully!");
+                            ClearData();
+                            Bindxerox();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No records found for deletion.");
+                        }
+
+                        con.Close();
+                    
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(" Invalid Input... Enter Phonenumber ");
+                    MessageBox.Show("Invalid Input: " + ex.Message);
                 }
             }
             else
@@ -195,7 +243,6 @@ namespace LoginPage
                 MessageBox.Show("Empty Phonenumber");
             }
         }
-
         private void btn_refresh_Click(object sender, EventArgs e)
         {
             Bindxerox();
@@ -216,6 +263,16 @@ namespace LoginPage
         private void btn_clr_Click(object sender, EventArgs e)
         {
             ClearData();
+        }
+
+        private void combo_alldata_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gv_alldata_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
