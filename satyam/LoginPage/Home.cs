@@ -17,6 +17,8 @@ namespace LoginPage
         SqlCommand cmd = new SqlCommand();
         String selectedItem = "";
         String payment = "";
+        decimal totalAmount = 0;
+        decimal productAmount = 0;
         public Home()
         {
             InitializeComponent();
@@ -40,14 +42,14 @@ namespace LoginPage
             txt_name.Clear();
             txt_phonenumber.Clear();
             //combo_alldata.Items.Clear();
-            txt_amount.Clear();
+            txt_myamount.Clear();
             txt_note.Clear();
             date_Date.Text = DateTime.Now.ToString();
             combo_alldata.Text = "Select Item";
 
-            rb_advance.Checked = false;
+            /*rb_advance.Checked = false;
             rb_pending.Checked = false;
-            rb_total.Checked = false;
+            rb_total.Checked = false;*/
         }
         private void Home_Load(object sender, EventArgs e)
         {
@@ -94,22 +96,13 @@ namespace LoginPage
                         {
                             combo_alldata.SelectedItem = "Ration card";
                         }
-                        string temp = dr.GetValue(4).ToString();
-                        if (temp.Equals("Advance"))
-                        {
-                            rb_advance.Checked = true;
-                        }
-                        else if (temp.Equals("Total"))
-                        {
-                            rb_total.Checked = true;
+                        
+                        txt_myamount.Text = dr.GetValue(4).ToString();
+                        txt_usersend.Text = dr.GetValue(5).ToString();
+                        txt_final.Text = dr.GetValue(6).ToString();
+                        pay_status.Text = dr.GetValue(7).ToString();
+                        txt_note.Text = dr.GetValue(8).ToString();
 
-                        }
-                        else if (temp.Equals("Panding"))
-                        {
-                            rb_pending.Checked = true;
-                        }
-                        txt_amount.Text = dr.GetValue(5).ToString();
-                        txt_note.Text = dr.GetValue(6).ToString();
                      dr.Close();    
                     }
                     else
@@ -124,7 +117,7 @@ namespace LoginPage
             }
             else
             {
-                MessageBox.Show("Enter Phone number.");
+                MessageBox.Show("Enter Phone number !!");
             }
         }
 
@@ -132,9 +125,18 @@ namespace LoginPage
         {
             try
             {
+            totalAmount = Convert.ToDecimal(txt_usersend.Text);
+            productAmount = Convert.ToDecimal(txt_myamount.Text);
+            decimal remainingAmount = totalAmount - productAmount;
+
+            string paymentStatus = remainingAmount > 0 ? "Pending" : "Advance";
+
 
                 con.Close();
-                SqlCommand cmd = new SqlCommand("insert into tbl_admindata values ('" + txt_name.Text + "'," + txt_phonenumber.Text + ",'" + date_Date.Text.ToString() + "','" + combo_alldata.Text.ToString() + "','" + payment + "' ," + txt_amount.Text + ",'" + txt_note.Text + "');", con);
+                SqlCommand cmd = new SqlCommand("insert into tbl_admindata values ('" + txt_name.Text + "'," + txt_phonenumber.Text + ",'" + date_Date.Text.ToString() + "','" + combo_alldata.Text.ToString() + "','" + txt_myamount.Text + "' ," + txt_usersend.Text + ",'" + txt_final.Text + "','"+pay_status.Text+"','" + txt_note.Text + "');", con)
+                {
+
+                };
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -145,7 +147,7 @@ namespace LoginPage
             }
             catch (Exception)
             {
-                MessageBox.Show(" Invalid Input ! Enter Data... ");
+                MessageBox.Show(" Invalid Input ! Enter Data !! ");
             }
         }
 
@@ -153,8 +155,15 @@ namespace LoginPage
         {
             try
             {
+                totalAmount = Convert.ToDecimal(txt_usersend.Text);
+                productAmount = Convert.ToDecimal(txt_myamount.Text);
+                decimal remainingAmount = totalAmount - productAmount;
+
+                string paymentStatus = remainingAmount > 0 ? "Pending" : "Advance";
+
                 con.Close();
-                SqlCommand cmd = new SqlCommand("UPDATE tbl_admindata set name = '" + txt_name.Text + "', date = '" + date_Date.Text.ToString() + "', work = '" + combo_alldata.Text.ToString() + "', payment = '" + payment + "', amount = " + txt_amount.Text + ", note = '" + txt_note.Text + "' WHERE phonenumber = " + txt_phonenumber.Text + ";", con);
+                con.Close();
+                SqlCommand cmd = new SqlCommand("UPDATE tbl_admindata set name = '" + txt_name.Text + "', date = '" + date_Date.Text.ToString() + "', work = '" + combo_alldata.Text.ToString() + "', total = '" + txt_usersend.Text + "', amount = " + txt_myamount.Text + ", note = '" + txt_note.Text + "' WHERE phonenumber = " + txt_phonenumber.Text + ";", con);
 
 
                 con.Open();
@@ -166,11 +175,11 @@ namespace LoginPage
             }
             catch (Exception)
             {
-                MessageBox.Show(" Invalid Input ! Enter Phonenumber And Search ");
+                MessageBox.Show(" Invalid Input ! Enter Phonenumber And Search !! ");
             }
         }
 
-        private void rb_advance_CheckedChanged(object sender, EventArgs e)
+       /* private void rb_advance_CheckedChanged(object sender, EventArgs e)
         {
             payment = "Advance";
 
@@ -184,30 +193,10 @@ namespace LoginPage
         private void rb_pending_CheckedChanged(object sender, EventArgs e)
         {
             payment = "Pending";
-        }
+        }*/
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
-
-            /*try
-            {
-                con.Close();
-                con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
-                MessageBox.Show("Record Deleted Successfully!!!!");
-                ClearData();
-                Bindxerox();
-            }
-            catch (Exception )
-            {
-                MessageBox.Show(" Invalid Input... Enter Phonenumber ");
-            }
-        }*/
-            /*else
-            {
-                MessageBox.Show("Empty Phonenumber");
-            }*/
 
             if (!string.IsNullOrWhiteSpace(txt_phonenumber.Text))
             {
@@ -274,6 +263,52 @@ namespace LoginPage
         {
 
         }
+
+        private void txt_total_g_TextChanged(object sender, EventArgs e)
+        {
+          
+            calculate_amt(); 
+        }
+         private void txt_amount_TextChanged(object sender, EventArgs e)
+            {
+            calculate_amt();
+
+            }
+
+            public  void calculate_amt()
+        {
+int             bill_amt  = 0;
+            int user_pay = 0;
+
+            bool bill_amt_check = int.TryParse(txt_myamount.Text , out  bill_amt);
+
+            bool user_pay_check = int.TryParse(txt_myamount.Text, out user_pay);
+            if (!string.IsNullOrWhiteSpace(txt_myamount.Text) && !string.IsNullOrWhiteSpace(txt_usersend.Text) && bill_amt_check && user_pay_check)
+            {
+
+
+          
+                bill_amt = Convert.ToInt32(txt_myamount.Text);
+               user_pay = Convert.ToInt32(txt_usersend.Text);
+
+                int amt = user_pay - bill_amt;
+                txt_final.Text = amt.ToString();
+
+                if (amt  ==  0)
+                {
+                    pay_status.Text = "No Remaining";
+                }else if (amt > 0)
+                {
+                    pay_status.Text = "Advance";
+                }
+                else
+                {
+                    pay_status.Text = "Remaining ";
+                }
+            }
+
+        }
+
     }
 }
 

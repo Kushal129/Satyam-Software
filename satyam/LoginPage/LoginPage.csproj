@@ -6,14 +6,14 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{2DE4E5BB-0233-4EFE-A001-B6F5105BAD9D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>LoginPage</RootNamespace>
+    <RootNamespace>CRUD</RootNamespace>
     <AssemblyName>Satyam</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>D:\MY\Extra\</PublishUrl>
+    <PublishUrl>C:\Users\Kushal\Desktop\New folder\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -24,7 +24,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationVersion>0.0.0.1</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -38,6 +38,10 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -52,7 +56,7 @@
     <StartupObject>LoginPage.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Screenshot_2023-05-30-13-47-11-939_com.whatsapp.ico</ApplicationIcon>
+    <ApplicationIcon>Satyam Xerox _logo_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
@@ -71,7 +75,7 @@
     </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
@@ -121,7 +125,6 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="LoginPage_TemporaryKey.pfx" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -151,7 +154,11 @@
     <None Include="Images\Minimize.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Screenshot_2023-05-30-13-47-11-939_com.whatsapp.ico" />
+    <None Include="Resources\navy-blue-bg.jpg" />
+    <None Include="Resources\bgimage.jpg" />
+    <None Include="Resources\bgimage-pqti.jpg" />
+    <None Include="Resources\bgimage-btn.jpg" />
+    <Content Include="Satyam Xerox _logo_icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
