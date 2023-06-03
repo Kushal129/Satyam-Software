@@ -15,19 +15,20 @@ tbl_login:-
 
 tbl_admindata :-
 
-    CREATE TABLE [dbo].[tbl_admindata] (
-    [name]        CHAR (80)     NULL,
-    [phonenumber] BIGINT        NOT NULL,
-    [date]        VARCHAR (50)  NULL,
-    [work]        VARCHAR (50)  NULL,
-    [payment]     VARCHAR (50)  NULL,
-    [amount]      FLOAT (53)    NULL,
-    [note]        VARCHAR (250) NULL,
-    [total]       FLOAT (53)    NULL,
-    [pending]     FLOAT (53)    NULL,
-    [advance]     FLOAT (53)    NULL,
+   CREATE TABLE [dbo].[tbl_admindata] (
+    [name]           CHAR (80)     NULL,
+    [phonenumber]    BIGINT        NOT NULL,
+    [date]           VARCHAR (50)  NULL,
+    [work]           VARCHAR (50)  NULL,
+    [payment]        VARCHAR (50)  NULL,
+    [amount]         FLOAT (53)    NULL,
+    [total]          FLOAT (53)    NULL,
+    [payment_status] VARCHAR (50)  NULL,
+    [note]           VARCHAR (250) NULL,
     CONSTRAINT [PK_tbl_admindata] PRIMARY KEY CLUSTERED ([phonenumber] ASC)
 );
+
+
 
 
 	
