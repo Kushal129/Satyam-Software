@@ -17,3 +17,17 @@ D:\MY\Extra\satyam\LoginPage\bin\Debug\Satyam.pdb
 D:\MY\Extra\satyam\LoginPage\bin\Debug\Satyam.exe.CodeAnalysisLog.xml
 D:\MY\Extra\satyam\LoginPage\bin\Debug\Satyam.exe.lastcodeanalysissucceeded
 D:\MY\Extra\satyam\LoginPage\obj\Debug\Satyam.application
+D:\MY\Extra\satyam\LoginPage\bin\Output\Record\Satyam.exe.config
+D:\MY\Extra\satyam\LoginPage\bin\Output\Record\Satyam.exe.manifest
+D:\MY\Extra\satyam\LoginPage\bin\Output\Record\Satyam.application
+D:\MY\Extra\satyam\LoginPage\bin\Output\Record\Satyam.exe
+D:\MY\Extra\satyam\LoginPage\bin\Output\Record\Satyam.pdb
+D:\MY\Extra\satyam\LoginPage\bin\Output\Record\Satyam.exe.CodeAnalysisLog.xml
+D:\MY\Extra\satyam\LoginPage\bin\Output\Record\Satyam.exe.lastcodeanalysissucceeded
+D:\MY\Extra\satyam\LoginPage\bin\Output\Record\EPPlus.dll
+D:\MY\Extra\satyam\LoginPage\bin\Output\Record\EPPlus.Interfaces.dll
+D:\MY\Extra\satyam\LoginPage\bin\Output\Record\EPPlus.System.Drawing.dll
+D:\MY\Extra\satyam\LoginPage\bin\Output\Record\Microsoft.IO.RecyclableMemoryStream.dll
+D:\MY\Extra\satyam\LoginPage\bin\Output\Record\EPPlus.xml
+D:\MY\Extra\satyam\LoginPage\bin\Output\Record\Microsoft.IO.RecyclableMemoryStream.xml
+D:\MY\Extra\satyam\LoginPage\obj\Debug\LoginPage.csproj.CopyComplete

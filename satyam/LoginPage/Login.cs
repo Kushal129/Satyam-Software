@@ -9,6 +9,8 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
+
 
 namespace LoginPage
 {
@@ -109,5 +111,28 @@ namespace LoginPage
             }
         }
 
+        private void check_password_view_CheckedChanged(object sender, EventArgs e)
+        {
+            if (check_password_view.Checked)
+            {
+                
+                txt_password.PasswordChar = '\0'; 
+
+                System.Threading.Timer timer = new System.Threading.Timer(HidePassword, null, 600, Timeout.Infinite); 
+            }
+            else
+            { 
+                txt_password.PasswordChar = '*';
+            }
+        }
+        private void HidePassword(object state)
+        {
+            
+            txt_password.Invoke((MethodInvoker)(() =>
+            {
+                txt_password.PasswordChar = '*';
+                check_password_view.Checked = false; 
+            }));
+        }
     }
 }

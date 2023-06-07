@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using OfficeOpenXml;
+using System.Windows.Forms.Design;
 
 namespace LoginPage
 {
@@ -15,10 +17,15 @@ namespace LoginPage
     {
         SqlConnection con = new SqlConnection(" Data Source=LAPTOP-867BHLVP;Initial Catalog=Satyam;Integrated Security=True");
         SqlCommand cmd = new SqlCommand();
-        String selectedItem = "";
-        String payment = "";
+        //String selectedItem = "";
+        //String payment = "";
         decimal totalAmount = 0;
         decimal productAmount = 0;
+        private bool isDragging = false;
+        private int mouseX;
+        private int mouseY;
+
+
         public Home()
         {
             InitializeComponent();
@@ -41,27 +48,50 @@ namespace LoginPage
         {
             txt_name.Clear();
             txt_phonenumber.Clear();
-            //combo_alldata.Items.Clear();
-            txt_myamount.Clear();
-            txt_note.Clear();
             date_Date.Text = DateTime.Now.ToString();
             combo_alldata.Text = "Select Item";
-
-            /*rb_advance.Checked = false;
-            rb_pending.Checked = false;
-            rb_total.Checked = false;*/
+            txt_myamount.Clear();
+            txt_usersend.Clear();
+            txt_final.Clear();
+            pay_status.Text = string.Empty; 
+            txt_note.Clear();
+            
         }
         private void Home_Load(object sender, EventArgs e)
         {
             txt_adminname.Text = "Username :  " + Storage.username as string;
+            StartPosition = FormStartPosition.CenterScreen;
+            // Enable manual form movement
+            this.MouseDown += Home_MouseDown;
+            this.MouseMove += Home_MouseMove;
+            this.MouseUp += Home_MouseUp;
 
         }
+        private void Home_MouseDown(object sender, MouseEventArgs e)
+        {
+            isDragging = true;
+            mouseX = e.X;
+            mouseY = e.Y;
+        }
+
+        private void Home_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isDragging)
+            {
+                this.SetDesktopLocation(MousePosition.X - mouseX, MousePosition.Y - mouseY);
+            }
+        }
+
+        private void Home_MouseUp(object sender, MouseEventArgs e)
+        {
+            isDragging = false;
+        }
+
 
         private void btn_close_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
 
         private void btn_search_Click(object sender, EventArgs e)
         {
@@ -70,6 +100,11 @@ namespace LoginPage
             {
                 try
                 {
+                    if (txt_phonenumber.Text.Length != 10)
+                    {
+                        MessageBox.Show("Invalid phone number! Please enter a 10-digit phone number.");
+                        return;
+                    }
                     con.Close();
                     cmd = new SqlCommand("select * from tbl_admindata where phonenumber =" + txt_phonenumber.Text + ";", con);
                     con.Open();
@@ -96,7 +131,54 @@ namespace LoginPage
                         {
                             combo_alldata.SelectedItem = "Ration card";
                         }
-                        
+                        else if (work.Equals("Graphic"))
+                        {
+                            combo_alldata.SelectedItem = "Graphic";
+                        }
+                        else if (work.Equals("Passport"))
+                        {
+                            combo_alldata.SelectedItem = "Passport";
+                        }
+                        else if (work.Equals("Driving Licence"))
+                        {
+                            combo_alldata.SelectedItem = "Driving Licence";
+                        }
+                        else if (work.Equals("Lamination"))
+                        {
+                            combo_alldata.SelectedItem = "Lamination";
+                        }
+                        else if (work.Equals("Online Form"))
+                        {
+                            combo_alldata.SelectedItem = "Online Form";
+                        }
+                        else if (work.Equals("Ayushman card"))
+                        {
+                            combo_alldata.SelectedItem = "Ayushman card";
+                        }
+                        else if (work.Equals("E-shram card"))
+                        {
+                            combo_alldata.SelectedItem = "E-shram card";
+                        }
+                        else if (work.Equals("Bhada karar"))
+                        {
+                            combo_alldata.SelectedItem = "Bhada karar";
+                        }
+                        else if (work.Equals("Affidavit"))
+                        {
+                            combo_alldata.SelectedItem = "Affidavit";
+                        }
+                        else if (work.Equals("Photo copy"))
+                        {
+                            combo_alldata.SelectedItem = "Photo copy";
+                        }
+                        else if (work.Equals("Insurance"))
+                        {
+                            combo_alldata.SelectedItem = "Insurance";
+                        }
+                        else if (work.Equals("Xerox"))
+                        {
+                            combo_alldata.SelectedItem = "Xerox";
+                        }
                         txt_myamount.Text = dr.GetValue(4).ToString();
                         txt_usersend.Text = dr.GetValue(5).ToString();
                         txt_final.Text = dr.GetValue(6).ToString();
@@ -125,7 +207,12 @@ namespace LoginPage
         {
             try
             {
-            totalAmount = Convert.ToDecimal(txt_usersend.Text);
+                if (txt_phonenumber.Text.Length != 10)
+                {
+                    MessageBox.Show("Invalid phone number! Please enter a 10-digit phone number.");
+                    return;
+                }
+                totalAmount = Convert.ToDecimal(txt_usersend.Text);
             productAmount = Convert.ToDecimal(txt_myamount.Text);
             decimal remainingAmount = totalAmount - productAmount;
 
@@ -155,6 +242,11 @@ namespace LoginPage
         {
             try
             {
+                if (txt_phonenumber.Text.Length != 10)
+                {
+                    MessageBox.Show("Invalid phone number! Please enter a 10-digit phone number.");
+                    return;
+                }
                 totalAmount = Convert.ToDecimal(txt_usersend.Text);
                 productAmount = Convert.ToDecimal(txt_myamount.Text);
                 decimal remainingAmount = totalAmount - productAmount;
@@ -179,22 +271,6 @@ namespace LoginPage
             }
         }
 
-       /* private void rb_advance_CheckedChanged(object sender, EventArgs e)
-        {
-            payment = "Advance";
-
-        }
-
-        private void rb_total_CheckedChanged(object sender, EventArgs e)
-        {
-            payment = "Total";
-        }
-
-        private void rb_pending_CheckedChanged(object sender, EventArgs e)
-        {
-            payment = "Pending";
-        }*/
-
         private void btn_delete_Click(object sender, EventArgs e)
         {
 
@@ -202,7 +278,12 @@ namespace LoginPage
             {
                 try
                 {
-                        con.Close();
+                    if (txt_phonenumber.Text.Length != 10)
+                    {
+                        MessageBox.Show("Invalid phone number! Please enter a 10-digit phone number.");
+                        return;
+                    }
+                    con.Close();
                         cmd = new SqlCommand("delete from tbl_admindata where phonenumber=" + txt_phonenumber.Text + ";", con);
                         con.Open();
                         //cmd.ExecuteNonQuery(); 
@@ -277,18 +358,16 @@ namespace LoginPage
 
             public  void calculate_amt()
         {
-int             bill_amt  = 0;
+            int bill_amt  = 0 ;
             int user_pay = 0;
-
             bool bill_amt_check = int.TryParse(txt_myamount.Text , out  bill_amt);
-
             bool user_pay_check = int.TryParse(txt_myamount.Text, out user_pay);
+            
+            
             if (!string.IsNullOrWhiteSpace(txt_myamount.Text) && !string.IsNullOrWhiteSpace(txt_usersend.Text) && bill_amt_check && user_pay_check)
             {
-
-
           
-                bill_amt = Convert.ToInt32(txt_myamount.Text);
+               bill_amt = Convert.ToInt32(txt_myamount.Text);
                user_pay = Convert.ToInt32(txt_usersend.Text);
 
                 int amt = user_pay - bill_amt;
@@ -296,19 +375,72 @@ int             bill_amt  = 0;
 
                 if (amt  ==  0)
                 {
-                    pay_status.Text = "No Remaining";
+                    pay_status.Text = "No Pending ";
                 }else if (amt > 0)
                 {
-                    pay_status.Text = "Advance";
+                    pay_status.Text = "Advance ";
                 }
                 else
                 {
-                    pay_status.Text = "Remaining ";
+                    pay_status.Text = "Pending ";//Remaining
                 }
             }
 
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txt_final_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_export_excel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (ExcelPackage excelPackage = new ExcelPackage())
+                {
+                    ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Data");
+
+                    // Get the column headers from the DataGridView
+                    for (int i = 0; i < gv_alldata.Columns.Count; i++)
+                    {
+                        worksheet.Cells[1, i + 1].Value = gv_alldata.Columns[i].HeaderText;
+                    }
+
+                    // Get the data from the DataGridView
+                    for (int i = 0; i < gv_alldata.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < gv_alldata.Columns.Count; j++)
+                        {
+                            worksheet.Cells[i + 2, j + 1].Value = gv_alldata.Rows[i].Cells[j].Value;
+                        }
+                    }
+
+                    // Save the Excel file
+                    using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+                    {
+                        saveFileDialog.Filter = "Excel Files|*.xlsx";
+                        saveFileDialog.Title = "Save Excel File";
+                        saveFileDialog.FileName = "Data.xlsx";
+
+                        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            excelPackage.SaveAs(new System.IO.FileInfo(saveFileDialog.FileName));
+                            MessageBox.Show("Data exported successfully!");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error exporting data: " + ex.Message);
+            }
+        }
     }
 }
 
