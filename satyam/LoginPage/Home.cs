@@ -337,7 +337,7 @@ namespace LoginPage
 
         private void combo_alldata_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+          
         }
 
         private void gv_alldata_CellContentClick(object sender, DataGridViewCellEventArgs e)

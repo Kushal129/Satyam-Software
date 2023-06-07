@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,15 +50,15 @@
             this.btn_refresh = new System.Windows.Forms.Button();
             this.btn_clr = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_mini = new System.Windows.Forms.Button();
             this.name = new System.Windows.Forms.Label();
+            this.btn_close = new System.Windows.Forms.Button();
             this.txt_adminname = new System.Windows.Forms.Label();
             this.txt_usersend = new System.Windows.Forms.TextBox();
             this.txt_final = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.pay_status = new System.Windows.Forms.Label();
             this.btn_export_excel = new System.Windows.Forms.Button();
-            this.btn_close = new System.Windows.Forms.Button();
-            this.btn_mini = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gv_alldata)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -187,14 +187,14 @@
             // 
             this.gv_alldata.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.gv_alldata.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gv_alldata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gv_alldata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gv_alldata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gv_alldata.GridColor = System.Drawing.SystemColors.Control;
             resources.ApplyResources(this.gv_alldata, "gv_alldata");
@@ -228,10 +228,29 @@
             this.panel1.Name = "panel1";
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // btn_mini
+            // 
+            this.btn_mini.FlatAppearance.BorderSize = 0;
+            this.btn_mini.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            resources.ApplyResources(this.btn_mini, "btn_mini");
+            this.btn_mini.Name = "btn_mini";
+            this.btn_mini.UseVisualStyleBackColor = true;
+            this.btn_mini.Click += new System.EventHandler(this.btn_mini_Click);
+            // 
             // name
             // 
             resources.ApplyResources(this.name, "name");
             this.name.Name = "name";
+            // 
+            // btn_close
+            // 
+            this.btn_close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btn_close.FlatAppearance.BorderSize = 0;
+            this.btn_close.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            resources.ApplyResources(this.btn_close, "btn_close");
+            this.btn_close.Name = "btn_close";
+            this.btn_close.UseVisualStyleBackColor = true;
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
             // txt_adminname
             // 
@@ -271,25 +290,6 @@
             this.btn_export_excel.Name = "btn_export_excel";
             this.btn_export_excel.UseVisualStyleBackColor = false;
             this.btn_export_excel.Click += new System.EventHandler(this.btn_export_excel_Click);
-            // 
-            // btn_close
-            // 
-            this.btn_close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btn_close.FlatAppearance.BorderSize = 0;
-            this.btn_close.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            resources.ApplyResources(this.btn_close, "btn_close");
-            this.btn_close.Name = "btn_close";
-            this.btn_close.UseVisualStyleBackColor = true;
-            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
-            // 
-            // btn_mini
-            // 
-            this.btn_mini.FlatAppearance.BorderSize = 0;
-            this.btn_mini.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            resources.ApplyResources(this.btn_mini, "btn_mini");
-            this.btn_mini.Name = "btn_mini";
-            this.btn_mini.UseVisualStyleBackColor = true;
-            this.btn_mini.Click += new System.EventHandler(this.btn_mini_Click);
             // 
             // Home
             // 

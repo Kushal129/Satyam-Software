@@ -471,6 +471,9 @@
   <data name="combo_alldata.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
+  <data name="combo_alldata.Text" xml:space="preserve">
+    <value>Select Work</value>
+  </data>
   <data name="&gt;&gt;combo_alldata.Name" xml:space="preserve">
     <value>combo_alldata</value>
   </data>
@@ -750,6 +753,31 @@
   <data name="&gt;&gt;btn_clr.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <data name="btn_mini.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btn_mini.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAADZJREFUOE9jGAXDCbABsQCJmAOIwYAHiN8B8X8S8ScgBullYATiHCDuIBEXATFI
+        7ygYYMDAAAAa2hX7QiL9sAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="btn_mini.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btn_mini.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1142, -1</value>
+  </data>
+  <data name="btn_mini.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btn_mini.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 56</value>
+  </data>
+  <data name="btn_mini.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
   <data name="&gt;&gt;btn_mini.Name" xml:space="preserve">
     <value>btn_mini</value>
   </data>
@@ -761,6 +789,27 @@
   </data>
   <data name="&gt;&gt;btn_mini.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="name.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="name.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MV Boli, 18pt</value>
+  </data>
+  <data name="name.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="name.Location" type="System.Drawing.Point, System.Drawing">
+    <value>555, 9</value>
+  </data>
+  <data name="name.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 40</value>
+  </data>
+  <data name="name.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="name.Text" xml:space="preserve">
+    <value>Satyam Xerox</value>
   </data>
   <data name="&gt;&gt;name.Name" xml:space="preserve">
     <value>name</value>
@@ -774,6 +823,33 @@
   <data name="&gt;&gt;name.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="btn_close.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btn_close.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAM5JREFUOE/N0rsOAUEARuGNRiLxBhKNRCholCoVjadSiURDQamioaAUr+J+KV2D
+        BuffbLHJ7mxWI07yZTKTzLjMWH9ZwhlNxZzRtyymSNkzb3UMEbVnPnXxxAoZLbhq4ogD4lowNcEDS+S1
+        QC2csEMVEQQ2wh06pIYztigjdAPc8MICJXxVD1e8MUcRoetDn75GAzpog1DfQtek36/NBS2QbucCHVKB
+        8U/sQDegzTktuGpDN7GH8Rq1aYa0PfOmtzCG8SGppDOaCnzKv86yPnflK9Akg+2HAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="btn_close.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btn_close.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1216, -1</value>
+  </data>
+  <data name="btn_close.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btn_close.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 57</value>
+  </data>
+  <data name="btn_close.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
   <data name="&gt;&gt;btn_close.Name" xml:space="preserve">
     <value>btn_close</value>
   </data>
@@ -785,6 +861,27 @@
   </data>
   <data name="&gt;&gt;btn_close.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="txt_adminname.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txt_adminname.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Palatino Linotype, 10.2pt</value>
+  </data>
+  <data name="txt_adminname.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="txt_adminname.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 18</value>
+  </data>
+  <data name="txt_adminname.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 23</value>
+  </data>
+  <data name="txt_adminname.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="txt_adminname.Text" xml:space="preserve">
+    <value>Admin-name</value>
   </data>
   <data name="&gt;&gt;txt_adminname.Name" xml:space="preserve">
     <value>txt_adminname</value>
@@ -821,72 +918,6 @@
   </data>
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
     <value>24</value>
-  </data>
-  <data name="name.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="name.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MV Boli, 18pt</value>
-  </data>
-  <data name="name.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="name.Location" type="System.Drawing.Point, System.Drawing">
-    <value>555, 9</value>
-  </data>
-  <data name="name.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 40</value>
-  </data>
-  <data name="name.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="name.Text" xml:space="preserve">
-    <value>Satyam Xerox</value>
-  </data>
-  <data name="&gt;&gt;name.Name" xml:space="preserve">
-    <value>name</value>
-  </data>
-  <data name="&gt;&gt;name.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;name.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;name.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="txt_adminname.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="txt_adminname.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Palatino Linotype, 10.2pt</value>
-  </data>
-  <data name="txt_adminname.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="txt_adminname.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 18</value>
-  </data>
-  <data name="txt_adminname.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 23</value>
-  </data>
-  <data name="txt_adminname.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="txt_adminname.Text" xml:space="preserve">
-    <value>Admin-name</value>
-  </data>
-  <data name="&gt;&gt;txt_adminname.Name" xml:space="preserve">
-    <value>txt_adminname</value>
-  </data>
-  <data name="&gt;&gt;txt_adminname.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txt_adminname.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;txt_adminname.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="txt_usersend.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10.2pt</value>
@@ -1039,82 +1070,6 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_export_excel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="btn_close.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btn_close.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAM5JREFUOE/N0rsOAUEARuGNRiLxBhKNRCholCoVjadSiURDQamioaAUr+J+KV2D
-        BuffbLHJ7mxWI07yZTKTzLjMWH9ZwhlNxZzRtyymSNkzb3UMEbVnPnXxxAoZLbhq4ogD4lowNcEDS+S1
-        QC2csEMVEQQ2wh06pIYztigjdAPc8MICJXxVD1e8MUcRoetDn75GAzpog1DfQtek36/NBS2QbucCHVKB
-        8U/sQDegzTktuGpDN7GH8Rq1aYa0PfOmtzCG8SGppDOaCnzKv86yPnflK9Akg+2HAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btn_close.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btn_close.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1216, -1</value>
-  </data>
-  <data name="btn_close.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="btn_close.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 57</value>
-  </data>
-  <data name="btn_close.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="&gt;&gt;btn_close.Name" xml:space="preserve">
-    <value>btn_close</value>
-  </data>
-  <data name="&gt;&gt;btn_close.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_close.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;btn_close.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="btn_mini.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btn_mini.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAADZJREFUOE9jGAXDCbABsQCJmAOIwYAHiN8B8X8S8ScgBullYATiHCDuIBEXATFI
-        7ygYYMDAAAAa2hX7QiL9sAAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="btn_mini.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btn_mini.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1142, -1</value>
-  </data>
-  <data name="btn_mini.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="btn_mini.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 56</value>
-  </data>
-  <data name="btn_mini.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;btn_mini.Name" xml:space="preserve">
-    <value>btn_mini</value>
-  </data>
-  <data name="&gt;&gt;btn_mini.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_mini.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;btn_mini.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -2684,9 +2639,6 @@
         /AD////////////////////////8AP////////////////////////wA////////////////////////
         /AA=
 </value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
